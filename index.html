@@ -1,98 +1,253 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Falimandimbisoa Luc RASAMIZANANY</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header, footer {
-      background: #333;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-    }
-    section {
-      padding: 2rem;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      background: white;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FALIMANDIMBISOA LUC RASAMIZANANY - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__logo">FALIMANDIMBISOA LUC RASAMIZANANY</h1>
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#experience">Expérience</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="header__cta-button">Télécharger mon CV</button>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                    <span class="header__hamburger-line"></span>
+                    <span class="header__hamburger-line"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header>
-  <h1>Falimandimbisoa Luc RASAMIZANANY</h1>
-  <nav>
-    <a href="#apropos">À propos</a>
-    <a href="#competences">Compétences</a>
-    <a href="#projets">Projets</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h2 class="hero-section__title">FALIMANDIMBISOA LUC RASAMIZANANY - Votre Futur Collaborateur Polyvalent en Énergies Renouvelables et IT</h2>
+                <p class="hero-section__subtitle">Candidat motivé et adaptable, prêt à relever de nouveaux défis.</p>
+            </div>
+        </section>
 
-<section id="apropos">
-  <h2>À propos</h2>
-  <p>Développeur passionné, avec une formation en informatique et une expérience professionnelle en gestion de systèmes, vente, et développement de solutions informatiques. Basé à Québec, prêt à relever de nouveaux défis.</p>
-</section>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">À Propos de Moi</h2>
+                <div class="about-section__content">
+                    <div class="about-section__image">
+                        <img src="https://via.placeholder.com/300" alt="Photo de profil de FALIMANDIMBISOA LUC RASAMIZANANY">
+                    </div>
+                    <div class="about-section__description">
+                        <p>Candidat polyvalent avec une expérience dans les énergies renouvelables, l'IT et le management. Motivé, adaptable et organisé, je suis ouvert à toute position me permettant d'utiliser mes compétences et d'acquérir de nouvelles compétences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="competences">
-  <h2>Compétences</h2>
-  <ul>
-    <li>HTML, CSS, JavaScript</li>
-    <li>Google Sheets, Script Apps</li>
-    <li>PHP, SQL</li>
-    <li>Création de sites web sur mesure</li>
-    <li>Gestion de bases de données</li>
-  </ul>
-</section>
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Mes Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>IT et Programmation</h3>
+                        <div class="skill-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>Gestion de bases de données</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-solar-panel"></i>
+                        <h3>Compétences en Énergies Renouvelables</h3>
+                        <div class="skill-tags">
+                            <span>Solaire Photovoltaïque</span>
+                            <span>Installation Électrique</span>
+                            <span>Maintenance Énergétique</span>
+                            <span>Études Techniques</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Technique et Commercial</h3>
+                        <div class="skill-tags">
+                            <span>Vente B2B/B2C</span>
+                            <span>Négociation</span>
+                            <span>Devis Personnalisés</span>
+                            <span>Support Client</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Adaptabilité Rapide</h3>
+                        <div class="skill-tags">
+                            <span>Résolution de Problèmes</span>
+                            <span>Apprentissage Continu</span>
+                            <span>Travail d'Équipe</span>
+                            <span>Autonomie</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="projets">
-  <h2>Projets</h2>
-  <div class="projects">
-    <div class="card">
-      <h3>Gestion de stock</h3>
-      <p>Application interne pour gérer les stocks d’un restaurant.</p>
-    </div>
-    <div class="card">
-      <h3>Automatisation Google Sheets</h3>
-      <p>Système d’évaluation de devis et génération de factures automatisées.</p>
-    </div>
-  </div>
-</section>
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title">Mon Expérience</h2>
+                <div class="experience-timeline">
+                    <div class="experience-card">
+                        <h3>Technicien Commercial chez Keroxen</h3>
+                        <p class="experience-date">Avril 2023 - Présent</p>
+                        <ul>
+                            <li>Études techniques et devis adaptés aux besoins des clients en énergie solaire.</li>
+                            <li>Installation et mise en service d'équipements solaires.</li>
+                            <li>Maintenance et support client pour assurer le bon fonctionnement.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Responsable des ventes chez Mivarotra Mada</h3>
+                        <p class="experience-date">Mars 2021 - Jan 2023</p>
+                        <ul>
+                            <li>Organisation et planification de la prospection commerciale.</li>
+                            <li>Développement et suivi de devis personnalisés.</li>
+                            <li>Gestion de la facturation et des paiements clients.</li>
+                            <li>Service après-vente (SAV) pour assurer la satisfaction client.</li>
+                        </ul>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Responsable du système de gestion des stocks chez Le Réseau</h3>
+                        <p class="experience-date">Mars 2019 - Août 2021</p>
+                        <ul>
+                            <li>Gestion du système informatique de gestion des stocks du restaurant, responsable de l'optimisation des bases de données, du suivi des approvisionnements et de la gestion numérique des inventaires.</li>
+                            <li>Assure la fiabilité des données et la coordination avec les fournisseurs pour un approvisionnement fluide.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email : <a href="mailto:rasfaly@gmail.com">rasfaly@gmail.com</a></p>
-  <p>Téléphone : +1 581 580 5766</p>
-  <p>Adresse : 3172 Rue de Versailles, Québec, QC G1X 1E4</p>
-</section>
+        <section id="education" class="education-section">
+            <div class="container">
+                <h2 class="section-title">Formation</h2>
+                <div class="education-list">
+                    <div class="education-item">
+                        <h3>Baccalauréat équivalent en IT</h3>
+                        <p>Institut de Formation Technique d'Antananarivo (2014-2018)</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>DES équivalent</h3>
+                        <p>Lycée Moderne d'Ampefiloha (2012-2014)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<footer>
-  <p>&copy; 2025 Falimandimbisoa Luc RASAMIZANANY</p>
-</footer>
+        <section id="languages" class="languages-section">
+            <div class="container">
+                <h2 class="section-title">Langues</h2>
+                <div class="language-list">
+                    <div class="language-item">
+                        <i class="fas fa-flag"></i>
+                        <h3>Malgache</h3>
+                        <p>Langue maternelle</p>
+                    </div>
+                    <div class="language-item">
+                        <i class="fas fa-flag"></i>
+                        <h3>Français</h3>
+                        <p>DELF B2</p>
+                    </div>
+                    <div class="language-item">
+                        <i class="fas fa-flag"></i>
+                        <h3>Anglais</h3>
+                        <p>Intermédiaire</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Mes Projets</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Projet 1 : Nom du Projet</h3>
+                        <p>Brève description du projet, technologies utilisées, votre rôle.</p>
+                        <a href="#" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Projet 2 : Nom du Projet</h3>
+                        <p>Brève description du projet, technologies utilisées, votre rôle.</p>
+                        <a href="#" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Projet 3 : Nom du Projet</h3>
+                        <p>Brève description du projet, technologies utilisées, votre rôle.</p>
+                        <a href="#" class="project-link">Voir le projet <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contactez-moi</h2>
+                <div class="contact-content">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Envoyer le message</button>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Informations Directes</h3>
+                        <p><i class="fas fa-phone-alt"></i> Téléphone : <a href="tel:+15815805766">+1 581 580 5766</a></p>
+                        <p><i class="fas fa-envelope"></i> Email : <a href="mailto:rasfaly@gmail.com">rasfaly@gmail.com</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Adresse : Rue de Versailles 3172, Québec, QC</p>
+                        <div class="social-icons">
+                            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 FALIMANDIMBISOA LUC RASAMIZANANY. Tous droits réservés.</p>
+            <div class="footer__links">
+                <a href="#hero">Accueil</a>
+                <a href="#about">À Propos</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
