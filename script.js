@@ -1,82 +1,81 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Menu Hamburger
-    const hamburger = document.querySelector('.header__hamburger');
-    const navMenu = document.querySelector('.header__menu');
+document.addEventListener('DOMContentLoaded', function() {
+    // Année courante pour le footer
+    const currentYearSpan = document.getElementById('currentYear');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    // Gestion du défilement fluide vers les sections
+    document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    // Fermer le menu si un lien est cliqué
-    document.querySelectorAll('.header__menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 
-    // Gestion du menu sticky et des liens actifs
-    const header = document.querySelector('.header');
-    const sections = document.querySelectorAll('section[id]');
-
-    const updateActiveClass = () => {
-        let currentActive = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - header.offsetHeight; // Ajuste pour le header sticky
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                currentActive = section.getAttribute('id');
+    // Optionnel: Ajouter une classe 'scrolled' à la navbar au défilement
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         });
+    }
 
-        document.querySelectorAll('.header__menu a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(currentActive)) {
-                link.classList.add('active');
+    // Fonctionnalité pour les liens des projets (pour l'instant, juste une alerte)
+    // Plus tard, ici vous générerez ou redirigerez vers les sites de démonstration
+    document.querySelectorAll('.project-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Empêche la redirection immédiate
+
+            const projectId = this.getAttribute('data-project-id');
+            let message = '';
+            let targetUrl = '#'; // URL par défaut, à remplacer
+
+            switch (projectId) {
+                case 'web-digital':
+                    message = "Vous avez cliqué sur 'Métiers du Web & Digital'. Ici, un site de démonstration pour une agence de marketing digital ou un consultant SEO pourrait être affiché !";
+                    // targetUrl = 'URL_DEMO_METIERS_WEB_DIGITAL'; // Remplacez par l'URL réelle
+                    break;
+                case 'ia-tech':
+                    message = "Vous avez cliqué sur 'IA & Tech'. Imaginez un site pour une startup d'IA ou un blog technologique innovant ici !";
+                    // targetUrl = 'URL_DEMO_IA_TECH'; // Remplacez par l'URL réelle
+                    break;
+                case 'coaching-formation':
+                    message = "Vous avez cliqué sur 'Coaching & Formation'. Un site élégant pour un coach de vie ou une plateforme de cours en ligne serait parfait !";
+                    // targetUrl = 'URL_DEMO_COACHING_FORMATION'; // Remplacez par l'URL réelle
+                    break;
+                case 'associations-ong':
+                    message = "Vous avez cliqué sur 'Associations & ONG'. Visualisez un site impactant pour une association caritative ou une ONG engagée ici !";
+                    // targetUrl = 'URL_DEMO_ASSOCIATIONS_ONG'; // Remplacez par l'URL réelle
+                    break;
+                default:
+                    message = "Projet inconnu.";
             }
-        });
-    };
 
-    window.addEventListener('scroll', () => {
-        updateActiveClass();
+            alert(message + "\n(Cette fonctionnalité sera développée pour rediriger vers un vrai site de démonstration.)");
+
+            // Si vous voulez une redirection directe après l'alerte ou sans alerte :
+            // window.open(targetUrl, '_blank');
+        });
     });
 
-    // Appel initial pour définir la classe active au chargement
-    updateActiveClass();
 
-    // Validation de base du formulaire de contact (sans envoi réel)
-    const contactForm = document.querySelector('.contact-form');
+    // Validation de formulaire simple (peut être étendu)
+    const contactForm = document.querySelector('#contact form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêche l'envoi réel du formulaire
-
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (name === '' || email === '' || message === '') {
-                alert('Veuillez remplir tous les champs obligatoires (Nom, Email, Message).');
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                alert('Veuillez entrer une adresse email valide.');
-                return;
-            }
-
-            // Ici, vous pouvez ajouter une logique pour afficher un message de succès
-            // ou envoyer les données via AJAX si vous avez un backend.
-            alert('Message envoyé avec succès (simulation) ! Merci de votre intérêt.');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêche l'envoi du formulaire pour le moment
+            alert('Formulaire de contact envoyé (fonctionnalité à implémenter côté serveur) !');
+            // Ici, vous devrez ajouter le code pour envoyer le formulaire (ex: via fetch API à un service backend ou Formspree)
             contactForm.reset(); // Réinitialise le formulaire
         });
     }
 
-    function validateEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
 });
