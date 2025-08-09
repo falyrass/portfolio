@@ -39,5 +39,8 @@ Remplissez `.env` (copiez depuis `.env.example`) avec vos identifiants EmailJS:
 Le formulaire de `Contact.vue` utilise `src/services/email.js` et envoie: { from_name, reply_to, message }.
 
 ## Déploiement
-- Netlify/Vercel: déploiement automatique (commande build `vite build`)
-- GitHub Pages: servez `dist/` avec un serveur SPA (redirection 404 -> index.html)
+- Netlify: `netlify.toml` fourni, build `npm run build`, publish `dist`. Fallback SPA via `_redirects`.
+- Vercel: `vercel.json` fourni, build `npm run build`, output `dist`, réécriture SPA incluse.
+- GitHub Pages: servez `dist/` avec fallback SPA (404 -> index.html).
+
+Astuce preview: si le port 5173 est occupé, lancez `npm run preview -- --port 5174`.
