@@ -2,5 +2,42 @@
 
 Ce dépôt contiendra la nouvelle application front-end (Vue 3 + Vite + Tailwind) pour mon portfolio.
 
-- Dossier actuel: c:\xampp\htdocs\portfolio
-- Prochaines étapes: initialiser Git, lier le remote GitHub, et pousser l'historique.
+
+# Portfolio (Vue 3 + Vite + Tailwind)
+
+Application portfolio personnelle construite avec Vue 3 (Composition API), Vue Router, Tailwind CSS et @vueuse/motion.
+
+## Prise en main
+```powershell
+cd c:\xampp\htdocs\portfolio
+npm install
+npm run dev
+```
+
+Build de production et preview:
+```powershell
+npm run build
+npm run preview
+```
+
+## Structure
+- src/pages: Home, About, Projects, Contact
+- src/components: Header, Footer, ThemeToggle, ProjectCard
+- src/router: configuration des routes
+- src/data: données d’exemple (projets, compétences, timeline)
+
+## Thème et accessibilité
+- Mode sombre/clair via un toggle (classe `dark` Tailwind)
+- Images avec attributs alt, contrastes soignés
+
+## Email (EmailJS)
+Remplissez `.env` (copiez depuis `.env.example`) avec vos identifiants EmailJS:
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
+Le formulaire de `Contact.vue` utilise `src/services/email.js` et envoie: { from_name, reply_to, message }.
+
+## Déploiement
+- Netlify/Vercel: déploiement automatique (commande build `vite build`)
+- GitHub Pages: servez `dist/` avec un serveur SPA (redirection 404 -> index.html)

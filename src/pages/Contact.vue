@@ -24,6 +24,8 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
+import { sendContactEmail } from '../services/email'
+
 const form = reactive({ name: '', email: '', message: '' })
 const loading = ref(false)
 const status = ref('')
@@ -34,15 +36,15 @@ async function onSubmit() {
   status.value = ''
   message.value = ''
   try {
-    await new Promise(r => setTimeout(r, 600))
+    await sendContactEmail(form)
     status.value = 'success'
-    message.value = 'Message envoyé (simulation). Intégration EmailJS à configurer.'
+    message.value = 'Message envoyé avec succès.'
     form.name = ''
     form.email = ''
     form.message = ''
   } catch (e) {
     status.value = 'error'
-    message.value = 'Une erreur est survenue.'
+    message.value = e?.message || 'Une erreur est survenue.'
   } finally {
     loading.value = false
   }
